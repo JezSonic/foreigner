@@ -8,6 +8,7 @@ FFI_INCLUDES = $(shell pkg-config --cflags libffi)
 INCLUDES= \
 		  -I$(GODOT_PATH)/modules/gdnative/include \
 		  -I$(GODOTCPP_PATH)/include \
+		  -I$(GODOTCPP_PATH)/godot-headers \
 		  -I$(GODOTCPP_PATH)/include/core \
 		  -I$(GODOTCPP_PATH)/include/gen \
 		  -L$(GODOTCPP_PATH)/bin \
