@@ -1,6 +1,7 @@
 # Yup, I have them riiight there.
 GODOTCPP_PATH ?= ../godot-cpp
 GODOT_PATH ?= ../godot
+GODOT_CPP_BIN ?= godot-cpp.linux.debug.64
 GODOT_BINARY = $(GODOT_PATH)/bin/godot.x11.tools.64
 
 FFI_INCLUDES = $(shell pkg-config --cflags libffi)
@@ -12,7 +13,7 @@ INCLUDES= \
 		  -L$(GODOTCPP_PATH)/bin \
 		  $(FFI_INCLUDES)
 
-LIBS = -lgodot-cpp.linux.debug.64 -lstdc++ -lffi -static-libstdc++ -static-libgcc
+LIBS = -l$(GODOT_CPP_BIN) -lstdc++ -lffi -static-libstdc++ -static-libgcc
 FLAGS = -ggdb -fPIC
 
 all: foreigner.so
