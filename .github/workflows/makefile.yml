@@ -31,4 +31,7 @@ jobs:
         # Artifact name
         name: build
         # A file, directory or wildcard pattern that describes what to upload
-        path: $GITHUB_WORKSPACE/
+        path: |
+          $GITHUB_WORKSPACE
+          $GITHUB_WORKSPACE/foreigner.so
+          $GITHUB_WORKSPACE/src/
