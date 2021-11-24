@@ -38,10 +38,6 @@ private:
 public:
     static void _register_methods();
 
-    static inline const char *___get_class_name() {
-        return (const char *) "ForeignLibrary";
-    }
-
     ForeignLibrary();
     ~ForeignLibrary();
 
