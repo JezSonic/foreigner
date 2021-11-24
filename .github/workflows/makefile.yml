@@ -24,7 +24,8 @@ jobs:
         cd ../
         git clone https://github.com/godotengine/godot.git -b 3.3
         cd $GITHUB_WORKSPACE
-        make
+        make foreigner.so
+        make foreigner.dll
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
@@ -33,3 +34,4 @@ jobs:
         # A file, directory or wildcard pattern that describes what to upload
         path: |
           foreigner.so
+          foreigner.dll
