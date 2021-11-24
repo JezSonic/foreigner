@@ -17,9 +17,15 @@ INCLUDES= \
 LIBS = -l$(GODOT_CPP_BIN) -lstdc++ -lffi -static-libstdc++ -static-libgcc
 FLAGS = -ggdb -fPIC
 
-all: foreigner.so
+all: foreigner.so foreginer.dylib foreginer.dll
 
 foreigner.so: src/*.cpp src/*.h
+	gcc -shared src/*.cpp -o foreigner.so $(LIBS) $(INCLUDES) $(FLAGS)
+
+foreigner.dll: src/*.cpp src/*.h
+	x86_64-w64-mingw32-g++ -shared src/*.cpp -o foreigner.dll $(LIBS) $(INCLUDES) $(FLAGS)
+
+foreigner.dylib: src/*.cpp src/*.h
 	gcc -shared src/*.cpp -o foreigner.so $(LIBS) $(INCLUDES) $(FLAGS)
 
 testlib.so: testlib/*.cpp
