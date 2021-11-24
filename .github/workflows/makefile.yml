@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev scons libdbus-1-dev libudev-dev libxi-dev libxrandr-dev yasm xvfb wget unzip
-        cd $GITHUB_WORKSPACE/../
+        sudo cd ../
         git clone --recursive https://github.com/godotengine/godot-cpp.git -b 3.3
         cd godot-cpp
         scons platform=linux generate_bindings=yes target=debug
