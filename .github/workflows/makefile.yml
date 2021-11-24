@@ -15,7 +15,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
-      run: make
+      run: |
+        git clone --recursive https://github.com/godotengine/godot-cpp.git -b 3.3
+        cd godot-cpp
+        scons platform=x11 generate_bindings=yes target=debug
+        cd ../
+        git clone https://github.com/godotengine/godot.git -b 3.3
+        make
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
